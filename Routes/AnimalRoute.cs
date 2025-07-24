@@ -10,7 +10,8 @@ namespace AnimalApi.Routes
         {
             var routes = app.MapGroup("animal");
 
-            routes.MapPost("", async (AnimalRequest req, AnimalContext context) => {
+            routes.MapPost("", async (AnimalRequest req, AnimalContext context, 
+                                    CancellationToken ct) => {
 
                 var animal = new AnimalModel(req.Name);
                 await context.AddAsync(animal);
